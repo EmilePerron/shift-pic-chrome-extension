@@ -16,7 +16,16 @@
             <h2><i i18n="tab_upload_subtitle"></i></h2>
         </header>
 
-        <div id="navigation-tabs" class="align-center">
+        <div id="corner-nav">
+            <a href="#">
+                <i class="fas fa-user-circle" aria-hidden="true"></i>
+            </a>
+            <a href="#">
+                <i class="fas fa-info-circle" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <nav id="navigation-tabs" class="align-center">
             <div class="toggler big" role="tablist">
                 <div toggles="#tab-upload" role="tab" aria-selected="true" tabindex="0">
                     <i class="fal fa-images" aria-hidden="true"></i>
@@ -28,59 +37,11 @@
                     <i class="fal fa-cog" aria-hidden="true"></i>
                 </div>
             </div>
-        </div>
+        </nav>
 
-        <form id="tab-upload" role="tabpanel" aria-hidden="false" data-title="i18n.tab_upload_title" data-subtitle="i18n.tab_upload_subtitle" i18n>
-            <div class="image-preview">
-                <label><i i18n="tab_upload_image_preview_label"></i></label>
-                <img src="https://images.unsplash.com/photo-1600195075976-6c1d19c956d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60">
-                <button type="button" class="secondary">
-                    <i class="fal fa-cloud-upload"></i>
-                    <i i18n="tab_upload_upload_button"></i>
-                </button>
-                <input type="file" id="filepicker">
-            </div>
-            <div class="options">
-                <div class="field">
-                    <label><i i18n="tab_upload_image_quality_label"></i></label>
-                    <div class="toggler">
-                        <input type="hidden" name="quality" value="high">
-                        <div value="low" tabindex="0">
-                            <i i18n="tab_upload_image_quality_option_low"></i>
-                        </div>
-                        <div value="medium" tabindex="0">
-                            <i i18n="tab_upload_image_quality_option_medium"></i>
-                        </div>
-                        <div value="high" tabindex="0" aria-selected="true">
-                            <i i18n="tab_upload_image_quality_option_high"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="field">
-                    <label>
-                        <i i18n="tab_upload_image_format_label"></i>
-                    </label>
-                    <div class="toggler">
-                        <input type="hidden" name="format" value="original">
-                        <div value="auto" tabindex="0">
-                            <i i18n="tab_upload_image_format_option_auto"></i>
-                        </div>
-                        <div value="original" tabindex="0" aria-selected="true">
-                            <i i18n="tab_upload_image_format_option_original"></i>
-                        </div>
-                    </div>
-                </div>
-                <button type="submit">
-                    <i i18n="tab_upload_submit_button"></i>
-                </button>
-            </div>
-        </form>
-
-        <form id="tab-search" role="tabpanel" aria-hidden="true" data-title="i18n.tab_search_title" data-subtitle="i18n.tab_search_subtitle" i18n>
-        </form>
-
-        <form id="tab-settings" role="tabpanel" aria-hidden="true" data-title="i18n.tab_settings_title" data-subtitle="i18n.tab_settings_subtitle" i18n>
-        </form>
+        <div view="tabs/upload.html"></div>
+        <div view="tabs/search.html"></div>
+        <div view="tabs/settings.html"></div>
 
         <div id="drag-indicator">
             <i i18n="ui_drag_indicator_label"></i>
@@ -97,12 +58,17 @@
 		<!-- External scripts & assets -->
 
 		<!-- Helper scripts -->
+        <script src="../src/helpers/view.js"></script>
   		<script src="../src/helpers/i18n.js"></script>
   		<script src="../src/helpers/dom.js"></script>
   		<script src="../src/helpers/flash.js"></script>
   		<script src="../src/helpers/ui.js"></script>
 
 		<!-- Core functionality scripts -->
-        <script src="../src/image-selection.js"></script>
+        <script src="../src/popup/init.js"></script>
+        <script src="../src/popup/drag.js"></script>
+        <script src="../src/popup/tab-upload.js"></script>
+        <script src="../src/popup/tab-search.js"></script>
+        <script src="../src/popup/tab-settings.js"></script>
 	</body>
 </html>

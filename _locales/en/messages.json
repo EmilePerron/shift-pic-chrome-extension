@@ -1,6 +1,6 @@
 {
-	"extension_name" : { "message" : "Stock Image Pal" },
-	"extension_description" : { "message" : "Download, resize and optimize images for your websites in an instant." },
+	"extension_name" : { "message" : "Shift Pic" },
+	"extension_description" : { "message" : "A Chrome extension that makes resizing & optimizing images for websites a breeze." },
 	"yes" : { "message" : "Yes" },
 	"no" : { "message" : "No" },
 	"cancel" : { "message" : "Cancel" },

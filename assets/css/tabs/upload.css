@@ -1,0 +1,7 @@
+#tab-upload { display: flex; justify-content: center; align-items: flex-start; }
+#tab-upload > * { flex: 0 0 0; }
+#tab-upload .image-preview { margin-right: 45px; position: relative; }
+#tab-upload .image-preview img { width: 320px; height: 212px; margin: 0; object-fit: cover; object-position: center; background-color: white; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, .25); }
+#tab-upload .image-preview img[src^='data:image/svg'] { object-fit: scale-down; }
+#tab-upload .image-preview button { position: absolute; bottom: 15px; left: 10px; }
+#tab-upload .image-preview #filepicker { display: none; }

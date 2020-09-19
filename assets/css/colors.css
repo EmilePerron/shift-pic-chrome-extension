@@ -1,0 +1,24 @@
+:root {
+    --font-body: 'Open Sans', sans-serif;
+    --font-heading: 'Work Sans', sans-serif;
+    --color-main: #6a41c3;
+    --color-light: #7f61bf;
+    --color-dark: #5f3aaf;
+    --color-focus: #ff9ffb;
+    --color-button: #fff;
+    --color-button-secondary: var(--color-light);
+}
+
+html[active-tab='tab-search'] {
+    --color-main: #3b3b3b;
+    --color-light: #5d5d5d;
+    --color-dark: #333;
+    --color-focus: #b08bff;
+}
+
+html[active-tab='tab-settings'] {
+    --color-main: #3556a9;
+    --color-light: #5971ad;
+    --color-dark: #304d98;
+    --color-focus: #00bcd4;
+}

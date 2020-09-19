@@ -1,0 +1,35 @@
+{
+	"extension_name" : { "message" : "Stock Image Pal" },
+	"extension_description" : { "message" : "Download, resize and optimize images for your websites in an instant." },
+	"yes" : { "message" : "Yes" },
+	"no" : { "message" : "No" },
+	"cancel" : { "message" : "Cancel" },
+	"okay" : { "message" : "Okay" },
+	"error" : { "message" : "Sorry, an error occured." },
+
+	"tab_upload_title": { "message": "Upload" },
+	"tab_upload_subtitle": { "message": "Select an image to resize & optimize" },
+	"tab_upload_image_preview_label": { "message": "Image preview" },
+	"tab_upload_upload_button": { "message": "Upload a different image" },
+	"tab_upload_image_quality_label": { "message": "Image quality" },
+	"tab_upload_image_quality_option_low": { "message": "Low" },
+	"tab_upload_image_quality_option_medium": { "message": "Medium" },
+	"tab_upload_image_quality_option_high": { "message": "High" },
+	"tab_upload_image_format_label": { "message": "Image format" },
+	"tab_upload_image_format_option_auto": { "message": "Best size" },
+	"tab_upload_image_format_option_original": { "message": "Keep original" },
+	"tab_upload_submit_button": { "message": "Optimize my image" },
+
+	"tab_search_title": { "message": "Search" },
+	"tab_search_subtitle": { "message": "Find the perfect stock image for your need" },
+
+	"tab_settings_title": { "message": "Settings" },
+	"tab_settings_subtitle": { "message": "Adjust your configurations and preferences" },
+
+	"ui_drag_indicator_label": { "message": "You can always drag & drop an image from your computer on this window to use it." },
+	"ui_drag_overlay_label": { "message": "Drop your image here to optimize it" },
+	"ui_processing_overlay_label": { "message": "Your image is being processed, please wait..." },
+
+	"error_invalid_file": { "message": "Please upload a valid image file." },
+	"error_download": { "message": "Sorry, an error occured while attempting to trigger your image's download." }
+}

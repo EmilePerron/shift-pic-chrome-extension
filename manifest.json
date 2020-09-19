@@ -1,0 +1,45 @@
+{
+	"name": "__MSG_extension_name__",
+	"version": "0.1.0",
+	"description": "__MSG_extension_description__",
+    "icons": {
+		"16": "assets/images/icon/extension-icon-16.png",
+		"32": "assets/images/icon/extension-icon-32.png",
+		"48": "assets/images/icon/extension-icon-48.png",
+		"128": "assets/images/icon/extension-icon-128.png"
+    },
+	"default_locale": "en",
+	"permissions": [
+		"activeTab",
+		"storage",
+		"tabs",
+		"downloads",
+		"identity"
+	],
+	"background": {
+		"scripts": [
+			"src/background/node-selector.js",
+			"src/background/size-detector.js"
+		],
+		"persistent" : true
+    },
+	"content_scripts": [
+        {
+	        "matches": [
+	            "http://*/*",
+	            "https://*/*"
+	            ],
+	        "js": [
+				"src/content/size-detector.js",
+				"src/content/node-selector.js"
+			],
+			"css": [
+				"assets/css/inject/inject.css"
+			],
+	        "run_at": "document_end"
+        }
+    ],
+	"browser_action": {
+    },
+	"manifest_version": 2
+}

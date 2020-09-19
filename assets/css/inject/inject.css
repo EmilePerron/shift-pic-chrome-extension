@@ -1,0 +1,5 @@
+#wsr--element-overlay { position: absolute; top: 680px; left: 900px; display: grid; width: 600px; height: 400px; place-items: center; background-color: rgb(3 144 226 / 0.25); border: 1px solid rgb(3 144 226 / 0.75); border-radius: 3px; z-index: 9999999; pointer-events: none; transition: none; }
+#wsr--element-overlay:not([style]) { display: none; }
+#wsr--element-overlay::before { content: attr(data-type); display: inline-block; padding: 2px 5px; font-family: sans-serif; font-size: 14px; text-align: center; color: rgb(0 56 88 / 75%); background-color: rgb(221 242 255); border-radius: 2px; }
+#wsr--element-overlay[data-type='background'] { background-color: rgb(120 226 3 / 0.35); border: 1px solid rgb(120, 226, 3); }
+#wsr--element-overlay[data-type='background']::before { color: #376900; background-color: #d6f5b3; }

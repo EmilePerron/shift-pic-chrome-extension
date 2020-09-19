@@ -1,0 +1,46 @@
+html, body { padding: 0; margin: 0; font-family: var(--font-body); font-size: 14px; font-weight: 400; line-height: 1.4; color: #fff; -webkit-font-smoothing: antialiased; background-color: var(--color-main); box-sizing: border-box; }
+body { padding: 30px; }
+* { font-family: inherit; font-size: inherit; font-weight: inherit; line-height: inherit; -webkit-font-smoothing: inherit; box-sizing: inherit; transition: all .35s ease-in-out; }
+
+h1 { margin: 0; font-family: var(--font-heading);font-size: 3rem; font-weight: 800; line-height: 1.4; }
+h2 { margin: 0; font-size: 16px; font-weight: 600; }
+
+#navigation-tabs { margin: 30px auto; margin-bottom: 45px; }
+#drag-indicator { position: fixed; bottom: 10px; left: 10px; right: 10px; padding: 10px; text-align: center; background-color: var(--color-dark); border-radius: 6px; }
+
+.text-center { text-align: center; }
+.align-center { display: grid; place-items: center; text-align: center; }
+
+/* Buttons */
+button, .button { display: inline-flex; padding: 18px 40px; justify-content: center; align-items: center; font-size: 1rem; font-weight: 700; white-space: nowrap; color: var(--color-main); background-color: var(--color-button); border: none; border-radius: 100px; cursor: pointer; transition: color .25s ease-in-out, background-color .25s ease-in-out, box-shadow .15s ease-in-out;  }
+button i, .button i { margin-right: 10px; font-size: 1.2em; color: var(--color-main); transition: all .25s ease-in-out; }
+button.secondary, .button.secondary { padding: 8px 16px; font-size: .9rem; font-weight: 600; color: white; background-color: var(--color-button-secondary); }
+button.secondary i, .button.secondary i {  color: white; }
+button:hover, .button:hover { color: var(--color-dark); background-color: rgba(255, 255, 255, .8); }
+button:hover i, .button:hover i { color: var(--color-dark); }
+button:focus, .button:focus { outline: none; box-shadow: 0 0 0 4px var(--color-focus); }
+
+/* Togglers */
+.toggler { display: inline-flex; width: auto; justify-content: space-between; font-size: .9rem; font-weight: 600; background-color: var(--color-dark); border-radius: 200px; position: relative; }
+.toggler > * { padding: 9px 16px; border-radius: 200px; cursor: pointer; position: relative; z-index: 2; transition: color .5s ease-in-out, background-color .5s ease-in-out, box-shadow .15s ease-in-out; }
+.toggler:hover > * { color: rgba(255, 255, 255, .5); transition: all .25s ease-in-out; }
+.toggler:hover > *:hover { color: #fff; transition: all .15s ease-in-out; }
+.toggler > *:focus { outline: none; box-shadow: 0 0 0 4px var(--color-focus); }
+.toggler > *[aria-selected="true"] { color: white; }
+.toggler:not(.ready) > *[aria-selected="true"] { background-color: var(--color-light); }
+.toggler.big { font-size: 1.65rem; }
+.toggler.big > * { padding: 12px 17px; }
+.toggler.big > *:not(:last-child) { margin-right: 3rem; }
+.toggler .selected-background { position: absolute; top: 0; left: 0; height: 100%; padding: 0; background-color: var(--color-light); border-radius: 150px; user-select: none; z-index: 1; transition: all .25s ease-out; }
+.toggler:not(.ready) .selected-background { display: none; }
+
+/* Form elements */
+label { display: block; margin-bottom: 7px; }
+.field { margin-bottom: 30px; }
+
+/* Tabs */
+[role="tabpanel"][aria-hidden="true"] { display: none !important; }
+
+/* Overlays */
+.overlay { position: fixed; top: 0; left: 0; display: none; width: 100%; height: 100%; place-items: center; font-size: 24px; font-weight: 600; color: white; background-color: rgba(0, 0, 0, .65); backdrop-filter: blur(3px); z-index: 100; }
+.overlay.visible { display: grid; }

@@ -40,6 +40,12 @@
 	"ui_drag_overlay_label": { "message": "Drop your image here to optimize it" },
 	"ui_processing_overlay_label": { "message": "Your image is being processed, please wait..." },
 
+	"error_generic": { "message": "Sorry, something went wrong with your request. Please close this window and try again." },
+	"error_refreshed": { "message": "Essential optimization data is missing. Please close this window and try again. This problem happens when an error occurs during the size detection process or when you accidentally refresh this popup window." },
 	"error_invalid_file": { "message": "Please upload a valid image file." },
+	"error_invalid_payload": { "message": "Sorry, something went wrong with your request. Please close this window and try again." },
+	"error_not_optimizable_file": { "message": "Sorry, the format of the image you provided is not supported by our optimization service at the moment.." },
+	"error_base_image_too_small": { "message": "The resolution of the image you provided is smaller than the desired resolution." },
+	"error_loading_search_results": { "message": "Sorry, an error occured while searching for images." },
 	"error_download": { "message": "Sorry, an error occured while attempting to trigger your image's download." }
 }

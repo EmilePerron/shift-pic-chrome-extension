@@ -20,7 +20,9 @@
         if (typeof response.error == 'undefined') {
             displaySearchResults(response);
         }
-    }).catch(() => { });
+    }).catch((error) => {
+        Rollbar.error("Search recent request error", error);
+    });
 
     // Regular form submission
     document.querySelector('#tab-search').addEventListener('submit', function(e) {
@@ -100,8 +102,9 @@
                 displaySearchResults(response);
             }
             isLoadingMore = false;
-        }).catch(() => {
+        }).catch((error) => {
             Flash.show('error', chrome.i18n.getMessage('error_loading_search_results'));
+            Rollbar.error("Search results request error", error);
             isLoadingMore = false;
         });
     }

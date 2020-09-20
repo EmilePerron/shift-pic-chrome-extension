@@ -5,6 +5,12 @@
  * ...
  */
 
+setTimeout(() => {
+    if (typeof window.sizeDataByDevice == 'undefined') {
+        Flash.show('error', chrome.i18n.getMessage('error_refreshed'), true);
+    }
+}, 1000);
+
 document.querySelector('#tab-upload .image-preview button').addEventListener('click', function(e) {
     document.querySelector('#filepicker').click();
 });
@@ -55,7 +61,9 @@ document.querySelector('#tab-upload').addEventListener('submit', function(e) {
             }
         }
         document.querySelector('#processing-overlay').classList.remove('visible');
-    }).catch(() => {
+    }).catch((error) => {
+        Flash.show('error', chrome.i18n.getMessage('error_generic'));
         document.querySelector('#processing-overlay').classList.remove('visible');
+        Rollbar.error("Upload & optimize request error", error);
     });
 });

@@ -1,3 +1,54 @@
 <form id="tab-settings" role="tabpanel" aria-hidden="true" data-title="i18n.tab_settings_title" data-subtitle="i18n.tab_settings_subtitle" i18n>
-
+    <div class="field unavailable">
+        <label><i i18n="tab_settings_image_quality_label"></i></label>
+        <div class="toggler">
+            <input type="hidden" name="quality" value="auto">
+            <div value="low" tabindex="0">
+                <i i18n="tab_upload_image_quality_option_low"></i>
+            </div>
+            <div value="medium" tabindex="0">
+                <i i18n="tab_upload_image_quality_option_medium"></i>
+            </div>
+            <div value="high" tabindex="0">
+                <i i18n="tab_upload_image_quality_option_high"></i>
+            </div>
+            <div value="auto" tabindex="0" aria-selected="true">
+                <i i18n="tab_upload_image_quality_option_auto"></i>
+            </div>
+            <div value="last_used" tabindex="0">
+                <i i18n="tab_settings_option_last_used"></i>
+            </div>
+        </div>
+    </div>
+    <div class="field unavailable">
+        <label>
+            <i i18n="tab_settings_image_format_label"></i>
+        </label>
+        <div class="toggler">
+            <input type="hidden" name="format" value="original">
+            <div value="auto" tabindex="0">
+                <i i18n="tab_upload_image_format_option_auto"></i>
+            </div>
+            <div value="original" tabindex="0" aria-selected="true">
+                <i i18n="tab_upload_image_format_option_original"></i>
+            </div>
+            <div value="last_used" tabindex="0">
+                <i i18n="tab_settings_option_last_used"></i>
+            </div>
+        </div>
+    </div>
+    <div class="field unavailable">
+        <label>
+            <i i18n="tab_settings_auto_optimize_drag_label"></i>
+        </label>
+        <div class="toggler">
+            <input type="hidden" name="format" value="no">
+            <div value="no" tabindex="0" aria-selected="true">
+                <i i18n="no"></i>
+            </div>
+            <div value="yes" tabindex="0">
+                <i i18n="yes"></i>
+            </div>
+        </div>
+    </div>
 </form>

@@ -31,6 +31,10 @@
 
 	"tab_settings_title": { "message": "Settings" },
 	"tab_settings_subtitle": { "message": "Adjust your configurations and preferences" },
+	"tab_settings_image_quality_label": { "message": "Default image quality" },
+	"tab_settings_image_format_label": { "message": "Default image format" },
+	"tab_settings_option_last_used": { "message": "Last used" },
+	"tab_settings_auto_optimize_drag_label": { "message": "Auto optimize on drag" },
 
 	"ui_drag_indicator_label": { "message": "You can always drag & drop an image from your computer on this window to use it." },
 	"ui_drag_overlay_label": { "message": "Drop your image here to optimize it" },

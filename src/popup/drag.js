@@ -32,5 +32,13 @@ document.querySelector('#drag-overlay').addEventListener('drop', function(e) {
 
     window.imageFile = imageFile;
 
-    document.querySelector('form#tab-upload').dispatchEvent(new Event('submit'));
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        document.querySelector('#tab-upload .image-preview img').src = e.target.result;
+        document.querySelector('#drag-overlay').classList.remove('visible');
+    }
+    reader.readAsDataURL(imageFile);
+
+    // @TODO: implement "Auto optimize on drag" setting here
+    //document.querySelector('form#tab-upload').dispatchEvent(new Event('submit'));
 });

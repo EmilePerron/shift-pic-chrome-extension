@@ -28,6 +28,8 @@ class UI {
 			targetTab.setAttribute('aria-hidden', 'false');
 			document.querySelector('h1').innerHTML = targetTab.getAttribute('data-title');
 			document.querySelector('h2').innerHTML = targetTab.getAttribute('data-subtitle');
+
+			UI.initTogglersBackground();
 		}, true);
 	}
 
@@ -70,7 +72,11 @@ class UI {
 			}
 		}, true);
 
-		for (const toggler of document.querySelectorAll('.toggler')) {
+		UI.initTogglersBackground();
+	}
+
+	static initTogglersBackground() {
+		for (const toggler of document.querySelectorAll('.toggler:not(.ready)')) {
 			setTimeout(() => {
 				const background = document.createElement("span");
 				background.classList.add('selected-background');
@@ -80,7 +86,9 @@ class UI {
 				background.style.width = selectedNode.offsetWidth + 'px';
 				background.style.left = selectedNode.offsetLeft + 'px';
 
-				toggler.classList.add('ready');
+				if (selectedNode.offsetWidth > 0) {
+					toggler.classList.add('ready');
+				}
 			}, 250);
 		}
 	}

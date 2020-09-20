@@ -48,8 +48,12 @@ input[type='search'] { padding-left: 42px; background-image: url('https://tools.
 .toggler:not(.ready) .selected-background { display: none; }
 
 /* Form elements */
-label { display: block; margin-bottom: 7px; }
+label { display: block; margin-bottom: 7px; font-size: 1rem; }
 .field { margin-bottom: 30px; }
+.field.unavailable { position: relative; }
+.field.unavailable > * { opacity: .2; user-select: none; pointer-events: none; position: relative; }
+.field.unavailable::before { content: 'This feature will be made available in a future update.'; max-width: 100%; padding: 5px 8px; font-size: .9rem; color: var(--color-dark); background-color: white; border-radius: 5px; box-shadow: 0 0 5px rgba(0, 0, 0, .25); position: absolute; top: 8px; left: 0; z-index: 5; opacity: 0; }
+.field.unavailable:hover::before { opacity: 1; transition: all .25s ease-in-out .25s; }
 
 /* Tabs */
 [role="tabpanel"][aria-hidden="true"] { display: none !important; }

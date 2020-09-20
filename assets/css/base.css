@@ -25,6 +25,13 @@ button.secondary i, .button.secondary i {  color: white; }
 button:hover, .button:hover { color: var(--color-dark); background-color: rgba(255, 255, 255, .8); }
 button:hover i, .button:hover i { color: var(--color-dark); }
 button:focus, .button:focus { outline: none; box-shadow: 0 0 0 4px var(--color-focus); }
+button[disabled], .button[disabled] { opacity: .25; filter: grayscale(1); pointer-events: none; }
+
+/* Inputs */
+input { display: block; width: 100%; padding: 8px 18px; font-size: 1rem; font-weight: 400; color: #222; background-color: white; border: none; border-radius: 50px; }
+input::placeholder { color: #aaa; }
+input:focus { outline: none; box-shadow: 0 0 0 4px var(--color-focus); }
+input[type='search'] { padding-left: 42px; background-image: url('https://tools.emileperron.com/fa-color/regular/search/%23bbb'); background-size: 16px; background-position: top 10px left 16px; background-repeat: no-repeat; }
 
 /* Togglers */
 .toggler { display: inline-flex; width: auto; justify-content: space-between; font-size: .9rem; font-weight: 600; background-color: var(--color-dark); border-radius: 200px; position: relative; }

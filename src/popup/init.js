@@ -26,7 +26,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
                     }
 
                     window.imageFile = new File([imageBlob], filename);
-                })
+                });
 
                 break;
             }

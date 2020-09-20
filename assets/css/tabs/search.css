@@ -1,0 +1,18 @@
+#tab-search { width: 80%; margin: auto; }
+#tab-search #search-results { display: block; margin-top: 30px; margin-bottom: 60px; }
+#tab-search #search-results .page { display: block; margin-top: 25px; columns: auto 3; gap: 25px; counter-increment: search-page; position: relative;  }
+#tab-search #search-results .page::before { content: counter(search-page); display: none; }
+#tab-search #search-results .page + .page { padding-top: 25px; border-top: 1px solid var(--color-light); }
+#tab-search #search-results .page + .page::before { display: block; width: 40px; margin: auto; font-weight: 600; text-align: center; color: rgba(255, 255, 255, .75); background-color: var(--color-main); position: absolute; top: -.7em; left: 0; right: 0; }
+#tab-search #search-results .page > * { margin-bottom: 1rem; break-inside: avoid; }
+#tab-search #search-results .photo-preview { margin-bottom: 25px; font-size: 0; border-radius: 5px; overflow: hidden; position: relative; }
+#tab-search #search-results .photo-preview img { width: 100%; height: auto; }
+#tab-search #search-results .photo-preview .photo-infos { display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%; height: 100%; padding: 10px; font-size: .9rem; text-align: center; background-color: rgba(0, 0, 0, .65); position: absolute; top: 0; left: 0; opacity: 0; }
+#tab-search #search-results .photo-preview .photo-infos button { margin-bottom: 7px; }
+#tab-search #search-results .photo-preview .photo-infos a { font-weight: 600; text-decoration: none; color: white; }
+#tab-search #search-results .photo-preview .photo-infos a:hover { text-decoration: underline; }
+#tab-search #search-results .photo-preview:hover .photo-infos,
+#tab-search #search-results .photo-preview:focus-within .photo-infos { opacity: 1; transition: all .15s ease-in-out; }
+#tab-search #search-results .page.empty-state { columns: 1; }
+#tab-search #search-results .page.last:not(.empty-state) { padding-bottom: 25px; border-bottom: 1px solid var(--color-light); }
+#tab-search #search-results .page.last .last-page-indicator { display: block; width: 150px; margin: auto; font-weight: 600; text-align: center; color: rgba(255, 255, 255, .75); background-color: var(--color-main); position: absolute; bottom: -.7em; left: 0; right: 0;  }

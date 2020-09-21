@@ -8,6 +8,8 @@
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     if (request.action == "initImageSelectionWindow") {
         window.sizeDataByDevice = request.sizeDataByDevice;
+        window.imageUrl = '';
+        window.imageUnsplashId = '';
 
         // Update image preview with selected image
         for (const breakpoint of ['4K', 'Desktop', 'Tablet', 'Mobile']) {

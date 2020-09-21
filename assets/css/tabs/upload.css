@@ -1,8 +1,17 @@
 #tab-upload { display: flex; justify-content: center; align-items:stretch; }
 #tab-upload > * { flex: 0 0 0; }
 #tab-upload .image-preview { margin-right: 45px; font-size: 0; position: relative; }
-#tab-upload .image-preview img { width: 320px; height: 212px; margin: 0; object-fit: cover; object-position: center; background-color: white; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, .25); }
+#tab-upload .image-preview img { width: 320px; height: 212px; margin: 0; object-fit: cover; object-position: center; background-color: white; background-size: cover; background-position: center; background-repeat: no-repeat; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, .25);  text-indent: -1000px; transition: none; }
 #tab-upload .image-preview img[src^='data:image/svg'] { object-fit: scale-down; }
 #tab-upload .image-preview button { position: absolute; bottom: 10px; left: 10px; }
 #tab-upload .image-preview #filepicker { display: none; }
 #tab-upload .options { display: flex; flex-direction: column; justify-content: space-between; align-items: flex-start; }
+
+/* Format placeholders */
+#tab-upload .image-preview img[src^='data:image/heic'] { background-image: url('/assets/images/format-placeholders/heic.png'); }
+#tab-upload .image-preview img[src^='data:image/bmp'] { background-image: url('/assets/images/format-placeholders/bmp.png'); }
+#tab-upload .image-preview img[src^='data:image/tiff'] { background-image: url('/assets/images/format-placeholders/tiff.png'); }
+#tab-upload .image-preview img[src^='data:image/vnd.adobe.photoshop'] { background-image: url('/assets/images/format-placeholders/psd.png'); }
+#tab-upload .image-preview img[src^='data:image/x-adobe-dng'],
+#tab-upload .image-preview img[src^='data:application/octet-stream'] { background-image: url('/assets/images/format-placeholders/raw.png'); }
+#tab-upload .image-preview img:not([src^='data:image/jpeg']):not([src^='data:image/jpg']):not([src^='data:image/png']):not([src^='data:image/gif']):not([src^='data:image/vnd.adobe.photoshop']):not([src^='data:image/tiff']):not([src^='data:image/bmp']):not([src^='data:image/heic']):not([src^='data:image/svg']):not([src^='data:image/x-adobe-dng']):not([src^='data:application/octet-stream']) { background-image: url('/assets/images/format-placeholders/unknown.png'); }

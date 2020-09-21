@@ -28,14 +28,21 @@ document.querySelector('#drag-overlay').addEventListener('drop', function(e) {
 
     if (!imageFile) {
         Flash.show('error', chrome.i18n.getMessage('error_invalid_file'));
+        return;
     }
 
     window.imageFile = imageFile;
+    window.imageUrl = '';
+    window.imageUnsplashId = '';
 
     const reader = new FileReader();
     reader.onload = function(e) {
-        document.querySelector('#tab-upload .image-preview img').src = e.target.result;
-        document.querySelector('#drag-overlay').classList.remove('visible');
+        if (!(/^data:image\/.+/.test(e.target.result)) && !(/^data:application\/octet-stream;.+/.test(e.target.result))) {
+            Flash.show('error', chrome.i18n.getMessage('error_invalid_file'));
+        } else {
+            document.querySelector('#tab-upload .image-preview img').src = e.target.result;
+            document.querySelector('#drag-overlay').classList.remove('visible');
+        }
     }
     reader.readAsDataURL(imageFile);
 

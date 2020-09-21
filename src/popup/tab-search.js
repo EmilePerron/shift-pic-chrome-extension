@@ -50,20 +50,13 @@
         const fullUrl = e.target.getAttribute('url-full');
         const unsplashId = e.target.getAttribute('photo-id');
 
+        window.imageFile = '';
+        window.imageUrl = fullUrl;
+        window.imageUnsplashId = unsplashId;
         document.querySelector('#tab-upload .image-preview img').src = previewUrl;
         document.querySelector('nav [toggles="#tab-upload"]').click();
-        document.querySelector('#tab-upload button[type="submit"]').disabled = true;
-        Flash.show('info', chrome.i18n.getMessage('tab_search_notice_downloading_image'));
 
-        fetch(fullUrl).then((response) => {
-            return response.blob();
-        }).then((imageBlob) => {
-            const filename = 'unsplash-image-' + unsplashId;
-            window.imageFile = new File([imageBlob], filename);
-            document.querySelector('#tab-upload button[type="submit"]').disabled = false;
-            Flash.show('success', chrome.i18n.getMessage('tab_search_notice_image_downloaded'));
-        });
-
+        // @TODO: Move this to the server side!
         fetch('https://optimizer.emileperron.com/search/download?id=' + unsplashId);
     }, true);
 

@@ -25,6 +25,8 @@ document.querySelector('#filepicker').addEventListener('change', function(e) {
         }
         reader.readAsDataURL(e.target.files[0]);
         window.imageFile = e.target.files[0];
+        window.imageUrl = '';
+        window.imageUnsplashId = '';
     }
 });
 
@@ -34,6 +36,7 @@ document.querySelector('#tab-upload').addEventListener('submit', function(e) {
     document.querySelector('#processing-overlay').classList.add('visible');
 
     const formData = new FormData(this);
+    formData.append('url', window.imageUrl);
     formData.append('image', window.imageFile);
     formData.append('devices', JSON.stringify(window.sizeDataByDevice));
     fetch("https://optimizer.emileperron.com/process", { method: 'POST', body: formData }).then((response) => {
@@ -43,7 +46,7 @@ document.querySelector('#tab-upload').addEventListener('submit', function(e) {
             const message = chrome.i18n.getMessage('error_' + response.error);
             Flash.show('error', message ? message : response.error);
         } else {
-            const originalFilename = window.imageFile.name.replace(/^(.*)(\.[a-zA-Z0-9]+)$/, '$1');
+            const originalFilename = window.imageUnsplashId ? `unsplash-image-${window.imageUnsplashId}` : window.imageFile.name.replace(/^(.*)(\.[a-zA-Z0-9]+)$/, '$1');
             for (const resolution in response) {
                 if (typeof response[resolution].error == 'undefined') {
                     chrome.downloads.download({

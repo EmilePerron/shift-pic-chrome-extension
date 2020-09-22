@@ -14,7 +14,7 @@
     let isLoadingMore = false;
 
     // On page load, fetch recent pictures and display those
-    fetch("https://optimizer.emileperron.com/search/recent").then((response) => {
+    fetch("https://api.shiftpic.co/search/recent").then((response) => {
         return response.json();
     }).then((response) => {
         if (typeof response.error == 'undefined') {
@@ -57,7 +57,7 @@
         document.querySelector('nav [toggles="#tab-upload"]').click();
 
         // @TODO: Move this to the server side!
-        fetch('https://optimizer.emileperron.com/search/download?id=' + unsplashId);
+        fetch('https://api.shiftpic.co/search/download?id=' + unsplashId);
     }, true);
 
     // Auto-load more images when scrolling near the bottom
@@ -85,7 +85,7 @@
         formData.append('query', query);
         formData.append('page', page);
 
-        fetch("https://optimizer.emileperron.com/search/photos", { method: 'POST', body: formData }).then((response) => {
+        fetch("https://api.shiftpic.co/search/photos", { method: 'POST', body: formData }).then((response) => {
             return response.json();
         }).then((response) => {
             if (typeof response.error != 'undefined') {

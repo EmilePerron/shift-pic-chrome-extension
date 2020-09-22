@@ -39,7 +39,7 @@ document.querySelector('#tab-upload').addEventListener('submit', function(e) {
     formData.append('url', window.imageUrl);
     formData.append('image', window.imageFile);
     formData.append('devices', JSON.stringify(window.sizeDataByDevice));
-    fetch("https://optimizer.emileperron.com/process", { method: 'POST', body: formData }).then((response) => {
+    fetch("https://api.shiftpic.co/process", { method: 'POST', body: formData }).then((response) => {
         return response.json();
     }).then((response) => {
         if (typeof response.error != 'undefined') {

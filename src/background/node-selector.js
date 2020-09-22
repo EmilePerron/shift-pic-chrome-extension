@@ -8,7 +8,6 @@
 chrome.browserAction.setBadgeText({ text: '' });
 chrome.browserAction.setBadgeBackgroundColor({ color: '#8bc34a' });
 
-//
 chrome.browserAction.onClicked.addListener(function(tab) {
     chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
         const tabId = tabs[0].id;

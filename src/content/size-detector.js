@@ -6,6 +6,11 @@
  */
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+    if (request.action == 'getInnerWindowDimensions') {
+        sendResponse({ width: window.innerWidth, height: window.innerHeight });
+        return false;
+    }
+
     if (request.action == "getNodeSizeData") {
         const node = document.querySelector('[wsr-target-node]');
 

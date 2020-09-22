@@ -9,13 +9,15 @@ chrome.browserAction.setBadgeText({ text: '' });
 chrome.browserAction.setBadgeBackgroundColor({ color: '#8bc34a' });
 
 chrome.browserAction.onClicked.addListener(function(tab) {
-    chrome.windows.get(tab.windowId, (window) => {
-        chrome.tabs.query({ currentWindow: true, active: true }, function(tabs) {
-            chrome.windows.create({ url: tabs[0].url ? tabs[0].url : tabs[0].pendingUrl, type: 'popup', focused: true, width: window.width, height: window.height }, function(popupWindow) {
-                chrome.tabs.getAllInWindow(popupWindow.id, function(popupWindowTabs) {
-                    setTimeout(() => {
-                        chrome.tabs.sendMessage(popupWindowTabs[0].id, { action: 'toggleTargetingMode' });
-                    }, 500);
+    chrome.tabs.sendMessage(tab.id, { action: 'getScrollYOffset' }, (scrollData) => {
+        chrome.windows.get(tab.windowId, (window) => {
+            chrome.tabs.query({ currentWindow: true, active: true }, function(tabs) {
+                chrome.windows.create({ url: tabs[0].url ? tabs[0].url : tabs[0].pendingUrl, type: 'popup', focused: true, width: window.width, height: window.height }, function(popupWindow) {
+                    chrome.tabs.getAllInWindow(popupWindow.id, function(popupWindowTabs) {
+                        setTimeout(() => {
+                            chrome.tabs.sendMessage(popupWindowTabs[0].id, { action: 'toggleTargetingMode', scrollYOffset: scrollData.scrollYOffset });
+                        }, 500);
+                    });
                 });
             });
         });

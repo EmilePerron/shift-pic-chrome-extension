@@ -7,7 +7,17 @@
 
     // Allow toggling on & off via extension icon click
     chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+        if (request.action == "getScrollYOffset") {
+            sendResponse({ scrollYOffset: window.scrollY });
+        }
+
         if (request.action == "toggleTargetingMode") {
+            // Scroll to same position as in source tab
+            const originalScrollBehavior = document.documentElement.style.scrollBehavior;
+            document.documentElement.style.scrollBehavior = 'auto';
+            window.scrollTo({ top: request.scrollYOffset, behavior: 'auto' });
+            document.documentElement.style.scrollBehavior = originalScrollBehavior;
+
             wsr__toggleBadge();
             sendResponse();
         }

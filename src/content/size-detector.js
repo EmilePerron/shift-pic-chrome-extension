@@ -64,6 +64,10 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
             }
 
             sendResponse(sizeData);
+
+            if (request.isLast) {
+                window.close();
+            }
         }, transitionDuration * 1000 + 50);
 
         return true;

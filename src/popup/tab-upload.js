@@ -37,6 +37,7 @@ document.querySelector('#tab-upload').addEventListener('submit', function(e) {
 
     const formData = new FormData(this);
     formData.append('url', window.imageUrl);
+    formData.append('unsplashId', window.imageUnsplashId);
     formData.append('image', window.imageFile);
     formData.append('devices', JSON.stringify(window.sizeDataByDevice));
     fetch("https://api.shiftpic.co/process", { method: 'POST', body: formData }).then((response) => {

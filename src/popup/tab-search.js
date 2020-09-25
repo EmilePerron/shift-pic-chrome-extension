@@ -55,9 +55,6 @@
         window.imageUnsplashId = unsplashId;
         document.querySelector('#tab-upload .image-preview img').src = previewUrl;
         document.querySelector('nav [toggles="#tab-upload"]').click();
-
-        // @TODO: Move this to the server side!
-        fetch('https://api.shiftpic.co/search/download?id=' + unsplashId);
     }, true);
 
     // Auto-load more images when scrolling near the bottom

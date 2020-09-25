@@ -1,7 +1,5 @@
 'use strict';
 
-// TODO: Add document.elementsFromPoint(x, y); to the current node detection algorithm, to better deals with overlapping elements
-
 (function() {
     let wsr__targetingEnabled = false;
     let wsr__currentTarget = null;
@@ -27,7 +25,6 @@
         }
 
         if (request.action == "toggleTargetingMode") {
-            console.log('Sttarting targeting overla');
             // Scroll to same position as in source tab
             const originalScrollBehavior = document.documentElement.style.scrollBehavior;
             document.documentElement.style.scrollBehavior = 'auto';
@@ -41,24 +38,13 @@
     });
 
     // Check for image node when hovering new element
-    document.addEventListener('mouseenter', function(e) {
-        if (!wsr__targetingEnabled || !e.target || !('matches' in e.target)) {
+    document.addEventListener('mousemove', function(e) {
+        if (!wsr__targetingEnabled) {
             return;
         }
 
         const imageNode = wsr__getImageNodeFromEvent(e);
         wsr__updateTargetedNodeTo(imageNode);
-    }, true);
-
-    // Check to remove overlay when leaving target
-    document.addEventListener('mouseout', function(e) {
-        if (!wsr__targetingEnabled) {
-            return;
-        }
-
-        if (wsr__currentTarget && e.target == wsr__currentTarget) {
-            wsr__updateTargetedNodeTo(null);
-        }
     }, true);
 
     // Update overlay location on scroll
@@ -113,25 +99,37 @@
 
     // Gets the node with the image, if any. Otherwise, returns null.
     function wsr__getImageNodeFromEvent(e) {
-        let node = e.target;
+        const nodesUnderCursor = document.elementsFromPoint(e.clientX, e.clientY);
 
-        // Simple image or picture tags
-        if (node.matches('img, svg')) {
-           return node;
-       } else if (node.matches('picture *, svg *')) {
-           return node.closest('picture, svg');
-       }
+        for (let node of nodesUnderCursor) {
+            // Simple image or picture tags
+            if (node.matches('img, svg')) {
+               return node;
+           } else if (node.matches('picture *, svg *')) {
+               return node.closest('picture, svg');
+           }
 
-        // Background images
-        do {
-            const styles = window.getComputedStyle(node);
-            if ((styles.backgroundImage || 'none') != 'none' && styles.backgroundImage.indexOf('url(') != -1) {
-                return node;
-            }
-            node = node.parentElement;
-        } while (node && node.parentElement);
+            // Background images
+            do {
+                const styles = window.getComputedStyle(node);
+                if ((styles.backgroundImage || 'none') != 'none' && styles.backgroundImage.indexOf('url(') != -1) {
+                    return node;
+                }
+                node = node.parentElement;
+            } while (node && node.parentElement);
+        }
 
         return null;
+    }
+
+    function wsr__toggleBadge() {
+        wsr__targetingEnabled = !wsr__targetingEnabled;
+
+        if (!wsr__targetingEnabled) {
+            wsr__updateTargetedNodeTo(null);
+        }
+
+        chrome.runtime.sendMessage({ action: "toggleBadge", status: wsr__targetingEnabled });
     }
 
     function wsr__toggleBadge() {

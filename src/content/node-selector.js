@@ -1,5 +1,7 @@
 'use strict';
 
+// TODO: Add document.elementsFromPoint(x, y); to the current node detection algorithm, to better deals with overlapping elements
+
 (function() {
     let wsr__targetingEnabled = false;
     let wsr__currentTarget = null;
@@ -9,9 +11,23 @@
     chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
         if (request.action == "getScrollYOffset") {
             sendResponse({ scrollYOffset: window.scrollY });
+            return false;
+        }
+
+        if (request.action == "probeForTargetingMode") {
+            if (!wsr__targetingOverlay) {
+                // Add overlay to the page
+                wsr__targetingOverlay = document.createElement('div');
+                wsr__targetingOverlay.id = "wsr--element-overlay"
+                document.body.appendChild(wsr__targetingOverlay);
+            }
+
+            sendResponse({ ready: true });
+            return false;
         }
 
         if (request.action == "toggleTargetingMode") {
+            console.log('Sttarting targeting overla');
             // Scroll to same position as in source tab
             const originalScrollBehavior = document.documentElement.style.scrollBehavior;
             document.documentElement.style.scrollBehavior = 'auto';
@@ -20,13 +36,9 @@
 
             wsr__toggleBadge();
             sendResponse();
+            return false;
         }
     });
-
-    // Add overlay to the page
-    wsr__targetingOverlay = document.createElement('div');
-    wsr__targetingOverlay.id = "wsr--element-overlay"
-    document.body.appendChild(wsr__targetingOverlay);
 
     // Check for image node when hovering new element
     document.addEventListener('mouseenter', function(e) {
@@ -40,6 +52,10 @@
 
     // Check to remove overlay when leaving target
     document.addEventListener('mouseout', function(e) {
+        if (!wsr__targetingEnabled) {
+            return;
+        }
+
         if (wsr__currentTarget && e.target == wsr__currentTarget) {
             wsr__updateTargetedNodeTo(null);
         }
@@ -47,6 +63,10 @@
 
     // Update overlay location on scroll
     document.addEventListener('scroll', function(){
+        if (!wsr__targetingEnabled) {
+            return;
+        }
+
         if (wsr__currentTarget) {
             wsr__updateTargetedNodeTo(wsr__currentTarget);
         }
@@ -54,7 +74,7 @@
 
     // Initiate image size detection and replacement sequence
     document.addEventListener('click', function(e) {
-        if (!wsr__currentTarget) {
+        if (!wsr__currentTarget || !wsr__targetingEnabled) {
             return;
         }
 

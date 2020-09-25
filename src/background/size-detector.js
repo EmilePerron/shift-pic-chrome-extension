@@ -29,7 +29,6 @@ function detectSize(tab) {
         chrome.tabs.setZoom(tab.id, 1, () => {
             chrome.tabs.sendMessage(tab.id, { action: 'getInnerWindowDimensions' }, (windowInnerSize) => {
                 const toolbarHeight = window.height - windowInnerSize.height;
-                /* TEMPORARY LOG */console.log("Toolbar height:" + toolbarHeight);
 
                 // Step 2: Get maximum window height
                 chrome.windows.update(window.id, { width: 6000, height: 6000 }, (maxedOutWindow) => {
@@ -57,7 +56,6 @@ function detectSize(tab) {
                                     chrome.windows.update(window.id, { width: Math.round(requiredWindowWidth), height: Math.round(requiredWindowHeight) }, (updatedWindow) => {
                                         setTimeout(() => {
                                             chrome.tabs.sendMessage(tab.id, { action: 'getNodeSizeData', isFirst: !deviceIndex, isLast: deviceIndex == deviceNames.length - 1 }, ((sizeData) => {
-                                                console.log(deviceIndex, sizeData);
                                                 results[deviceNames[deviceIndex]] = sizeData;
                                                 deviceIndex += 1;
                                                 checkNextResolution();

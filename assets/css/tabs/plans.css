@@ -1,0 +1,42 @@
+#tab-plans .plans-container { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; grid-gap: 10px; }
+#tab-plans .plans-container .plan { display: flex; flex-direction: column; justify-content: space-between; padding: 15px; text-align: center; color: #000; background-color: white; border-radius: 8px; }
+#tab-plans .plans-container .plan .header { margin-top: 15px; }
+#tab-plans .plans-container .plan .header .title { font-size: 1.25em; line-height: 1.5; font-weight: 400; }
+#tab-plans .plans-container .plan .header .price { display: flex; justify-content: center; align-items: baseline; margin: 5px auto; font-family: var(--font-heading); font-size: 28px; line-height: 1; }
+#tab-plans .plans-container .plan .header .price sup { font-size: .65em; position: relative; top: -.35em; }
+#tab-plans .plans-container .plan .header .per-month { font-size: 12px; color: #999; }
+#tab-plans .plans-container .plan hr { display: block; width: 60%; height: 1px; margin: 20px auto; background-color: #eee; border: none; }
+#tab-plans .plans-container .plan .description-wrapper { font-size: 14px; line-height: 1.5; color: #555; }
+#tab-plans .plans-container .plan .description-wrapper .description-line + .description-line { margin-top: 8px; }
+#tab-plans .plans-container .plan .description-wrapper .description-line .subline { font-size: .8em; }
+#tab-plans .plans-container .plan button { width: 100%; padding: 10px; margin-top: 20px; color: white; background-color: var(--color-main); }
+#tab-plans .plans-container .plan button:hover { background-color: var(--color-light); }
+
+#tab-plans .plans-container .plan:first-child { color: #d8c5ff; background-color: var(--color-dark); }
+#tab-plans .plans-container .plan:first-child .header { color: #ede4ff; }
+#tab-plans .plans-container .plan:first-child .header .per-month { color: #bea3f3; }
+#tab-plans .plans-container .plan:first-child hr { background-color: #bea3f3; }
+#tab-plans .plans-container .plan:first-child .description-wrapper { color: #d8c5ff; }
+#tab-plans .plans-container .plan:first-child .description-wrapper .subline { color: #c4b0ec; }
+#tab-plans .plans-container .plan:first-child button { background-color: rgba(255, 255, 255, .1); }
+
+#tab-plans .plans-container .plan:nth-child(2) { color: #eae0ff; background-color: #8869ca; }
+#tab-plans .plans-container .plan:nth-child(2) .header { color: #ffffff; }
+#tab-plans .plans-container .plan:nth-child(2) .header .title { color: #f3eeff; }
+#tab-plans .plans-container .plan:nth-child(2) .header .per-month { color: #bea3f3; }
+#tab-plans .plans-container .plan:nth-child(2) hr { background-color: #ae94e4; }
+#tab-plans .plans-container .plan:nth-child(2) .description-wrapper { color: #d8c5ff; }
+#tab-plans .plans-container .plan:nth-child(2) .description-wrapper .subline { color: #c4b0ec; }
+#tab-plans .plans-container .plan:nth-child(2) button { background-color: #ad95e2;}
+
+#tab-plans .plans-container .plan .current-plan-indicator { display: none; height: 39px; margin-top: 20px; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; }
+html[license-type='free'] #tab-plans .plans-container .plan.free .current-plan-indicator { display: flex; }
+html[license-type='free'] #tab-plans .plans-container .plan.free button { display: none; }
+html[license-type='starter'] #tab-plans .plans-container .plan.starter .current-plan-indicator { display: flex; }
+html[license-type='starter'] #tab-plans .plans-container .plan.starter button { display: none; }
+html[license-type='premium'] #tab-plans .plans-container .plan.premium .current-plan-indicator { display: flex; }
+html[license-type='premium'] #tab-plans .plans-container .plan.premium button { display: none; }
+html[license-type='enterprise'] #tab-plans .plans-container .plan.enterprise .current-plan-indicator { display: flex; }
+html[license-type='enterprise'] #tab-plans .plans-container .plan.enterprise button { display: none; }
+
+.checkout-popup { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 100; }

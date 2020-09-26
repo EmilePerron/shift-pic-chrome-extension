@@ -69,7 +69,7 @@ function detectSize(tab) {
                                 chrome.windows.update(window.id, originalResolution)
 
                                 // Open image selection UI and pass size data
-                                chrome.windows.create({ url: 'views/image-selection.html', type: 'popup', focused: true, width: 800, height: 600 }, function(window) {
+                                chrome.windows.create({ url: 'views/image-selection.html', type: 'popup', focused: true, width: 900, height: 615 }, function(window) {
                                     setTimeout(() => { chrome.runtime.sendMessage({ action: 'initImageSelectionWindow', sizeDataByDevice: results }); }, 500);
                                 });
                             }

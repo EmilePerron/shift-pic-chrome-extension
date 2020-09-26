@@ -30,6 +30,11 @@ class UI {
 			document.querySelector('h2').innerHTML = targetTab.getAttribute('data-subtitle');
 
 			UI.initTogglersBackground();
+
+			// Toggler selected background fix for tab toggles outside of the main navigation
+			if (!tabToggle.closest('#navigation-tabs')) {
+				document.querySelector('#navigation-tabs .selected-background').style.opacity = 0;
+			}
 		}, true);
 	}
 
@@ -60,6 +65,7 @@ class UI {
 			// Animate selected background to new selection
 			selectedBackground.style.width = togglerOption.offsetWidth + 'px';
 			selectedBackground.style.left = togglerOption.offsetLeft + 'px';
+			selectedBackground.style.opacity = 1;
 		}, true);
 
 		document.addEventListener('keydown', function(e) {

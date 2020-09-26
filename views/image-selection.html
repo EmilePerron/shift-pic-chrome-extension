@@ -9,6 +9,8 @@
 		<link rel="stylesheet" href="../assets/css/tabs/upload.css">
 		<link rel="stylesheet" href="../assets/css/tabs/search.css">
 		<link rel="stylesheet" href="../assets/css/tabs/settings.css">
+		<link rel="stylesheet" href="../assets/css/tabs/user.css">
+		<link rel="stylesheet" href="../assets/css/tabs/plans.css">
         <script src="../src/popup/rollbar.js"></script>
 	</head>
 	<body>
@@ -18,10 +20,13 @@
         </header>
 
         <div id="corner-nav">
-            <a href="#">
+            <a href="#" role="tab" toggles="#tab-user">
                 <i class="fas fa-user-circle" aria-hidden="true"></i>
             </a>
-            <a href="#">
+            <a href="#" role="tab" toggles="#tab-plans">
+                <i class="fas fa-usd-circle" aria-hidden="true"></i>
+            </a>
+            <a href="#" role="tab" toggles="#tab-about">
                 <i class="fas fa-info-circle" aria-hidden="true"></i>
             </a>
         </div>
@@ -43,6 +48,8 @@
         <div view="tabs/upload.html"></div>
         <div view="tabs/search.html"></div>
         <div view="tabs/settings.html"></div>
+        <div view="tabs/user.html"></div>
+        <div view="tabs/plans.html"></div>
 
         <div id="drag-indicator">
             <i i18n="ui_drag_indicator_label"></i>
@@ -64,6 +71,7 @@
   		<script src="../src/helpers/dom.js"></script>
   		<script src="../src/helpers/flash.js"></script>
   		<script src="../src/helpers/ui.js"></script>
+  		<script src="../src/helpers/license.js"></script>
 
 		<!-- Core functionality scripts -->
         <script src="../src/popup/init.js"></script>
@@ -71,5 +79,6 @@
         <script src="../src/popup/tab-upload.js"></script>
         <script src="../src/popup/tab-search.js"></script>
         <script src="../src/popup/tab-settings.js"></script>
+        <script src="../src/popup/tab-user.js"></script>
 	</body>
 </html>

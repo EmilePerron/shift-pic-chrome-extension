@@ -36,6 +36,32 @@
 	"tab_settings_option_last_used": { "message": "Last used" },
 	"tab_settings_auto_optimize_drag_label": { "message": "Auto optimize on drag" },
 
+	"tab_user_title": { "message": "User information" },
+	"tab_user_subtitle": { "message": "Manage your Shift Pic license and subscription" },
+	"tab_user_license": { "message": "Your license key" },
+	"tab_user_license_help_text": { "message": "You can always find your license in the order confirmation email you received after purchasing a subscription plan." },
+	"tab_user_license_type": { "message": "Your license type" },
+
+	"tab_plans_title": { "message": "Plans" },
+	"tab_plans_subtitle": { "message": "Reasonable prices for every type of users" },
+	"tab_plans_per_month": { "message": "per month" },
+	"tab_plans_current_plan": { "message": "This is your current plan" },
+	"tab_plans_choose": { "message": "Choose" },
+	"tab_plans_free_title": { "message": "Free" },
+	"tab_plans_free_desc_line1": { "message": "15 optimizations / month" },
+	"tab_plans_free_desc_line2": { "message": "Limited format support <div class='subline'>(JPEG, PNG, GIF, BMP and TIFF)</div>" },
+	"tab_plans_starter_title": { "message": "Starter" },
+	"tab_plans_starter_desc_line1": { "message": "40 optimizations / month" },
+	"tab_plans_starter_desc_line2": { "message": "Improved format support <div class='subline'>(adds support for HEIC and RAW)</div>" },
+	"tab_plans_premium_title": { "message": "Premium" },
+	"tab_plans_premium_desc_line1": { "message": "150 optimizations / month" },
+	"tab_plans_premium_desc_line2": { "message": "Complete format support <div class='subline'>(adds support for animated GIF)</div>" },
+	"tab_plans_enterprise_title": { "message": "Enterprise" },
+	"tab_plans_enterprise_desc_line1": { "message": "500 optimizations / month" },
+	"tab_plans_enterprise_desc_line2": { "message": "Complete format support <div class='subline'>(adds support for animated GIF)</div>" },
+	"tab_plans_new_order_validating": { "message": "Thank you for your purchase! Loading your new license..." },
+	"tab_plans_new_order_success": { "message": "You have succesfully been upgraded to the %s plan!" },
+
 	"ui_drag_indicator_label": { "message": "You can always drag & drop an image from your computer on this window to use it." },
 	"ui_drag_overlay_label": { "message": "Drop your image here to optimize it" },
 	"ui_processing_overlay_label": { "message": "Your image is being processed, please wait..." },
@@ -47,5 +73,9 @@
 	"error_not_optimizable_file": { "message": "Sorry, the format of the image you provided is not supported by our optimization service at the moment.." },
 	"error_base_image_too_small": { "message": "The resolution of the image you provided is smaller than the desired resolution." },
 	"error_loading_search_results": { "message": "Sorry, an error occured while searching for images." },
-	"error_download": { "message": "Sorry, an error occured while attempting to trigger your image's download." }
+	"error_download": { "message": "Sorry, an error occured while attempting to trigger your image's download." },
+	"error_no_license": { "message": "You don't have a license. Please close this window and try again." },
+	"error_unknown_license": { "message": "Your license was not recognized. If you think this is a bug, you can contact us at billing@shiftpic.co." },
+	"error_usage_maxed": { "message": "You have reached your quota of image optimizations for this month. You can upgrade your plan to increase your monthly quota." },
+	"error_image_format_upgrade_required": { "message": "This type of image is not allowed on your current plan. You can upgrade your plan to get support for this type of image." }
 }

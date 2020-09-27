@@ -45,6 +45,7 @@
 	"tab_user_license": { "message": "Your license key" },
 	"tab_user_license_help_text": { "message": "You can always find your license in the order confirmation email you received after purchasing a subscription plan." },
 	"tab_user_license_type": { "message": "Your license type" },
+	"tab_user_license_change_success": { "message": "Your license has been successfully updated!" },
 
 	"tab_plans_title": { "message": "Plans" },
 	"tab_plans_subtitle": { "message": "Reasonable prices for every type of users" },
@@ -83,7 +84,8 @@
 	"error_loading_search_results": { "message": "Sorry, an error occured while searching for images." },
 	"error_download": { "message": "Sorry, an error occured while attempting to trigger your image's download." },
 	"error_no_license": { "message": "You don't have a license. Please close this window and try again." },
-	"error_unknown_license": { "message": "Your license was not recognized. If you think this is a bug, you can contact us at billing@shiftpic.co." },
+	"error_unknown_license": { "message": "Your license was not recognized. If you think this is a bug, you can contact billing@shiftpic.co." },
+	"error_manual_downgrade_not_allowed": { "message": "This license change is a downgrade. Please go through the Plans interface to switch to cancel your license and go back to a free license." },
 	"error_usage_maxed": { "message": "You have reached your quota of image optimizations for this month. You can upgrade your plan to increase your monthly quota." },
 	"error_image_format_upgrade_required": { "message": "This type of image is not allowed on your current plan. You can upgrade your plan to get support for this type of image." }
 }

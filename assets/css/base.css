@@ -59,6 +59,12 @@ label { display: block; margin-bottom: 7px; font-size: 1rem; }
 .input-button-wrapper { display: flex; justify-content: space-between; }
 .input-button-wrapper *:first-child { margin-right: 5px; }
 
+/* Tooltip */
+.has-tooltip { position: relative; }
+.has-tooltip .tooltip { display: block; padding: 6px 10px; font-size: 12px; font-weight: 600; line-height: 1; white-space: nowrap; color: white; background-color: rgba(0, 0, 0, .35); border-radius: 4px; opacity: 0; pointer-events: none; position: absolute; top: 2px; transition: all .15s ease-in-out; }
+.has-tooltip .tooltip.left { margin-right: 5px; right: 100%; }
+.has-tooltip .tooltip.right { margin-left: 5px; left: 100%; }
+.has-tooltip:hover .tooltip { opacity: 1; }
 
 /* Tabs */
 [role="tabpanel"][aria-hidden="true"] { display: none !important; }

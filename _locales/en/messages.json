@@ -7,6 +7,10 @@
 	"okay" : { "message" : "Okay" },
 	"error" : { "message" : "Sorry, an error occured." },
 
+	"toggle_user_tab" : { "message" : "Your account" },
+	"toggle_plans_tab" : { "message" : "Upgrade license" },
+	"toggle_info_tab" : { "message" : "About Shift Pic" },
+
 	"tab_upload_title": { "message": "Upload" },
 	"tab_upload_subtitle": { "message": "Select an image to resize & optimize" },
 	"tab_upload_image_preview_label": { "message": "Image preview" },
@@ -61,6 +65,10 @@
 	"tab_plans_enterprise_desc_line2": { "message": "Complete format support <div class='subline'>(adds support for animated GIF)</div>" },
 	"tab_plans_new_order_validating": { "message": "Thank you for your purchase! Loading your new license..." },
 	"tab_plans_new_order_success": { "message": "You have succesfully been upgraded to the %s plan!" },
+
+	"tab_about_title": { "message": "About" },
+	"tab_about_subtitle": { "message": "Information about Shift Pic" },
+	"tab_about_content": { "message": "<p>Shift Pic is developed and maintained by <a href='https://www.emileperron.com' target='_blanks'>Émile Perron</a></p><p>If you have questions or feedback about the project, reach out to me via social media or by email at <a href='mailto:emile@shiftpic.co' target='_blank'>emile@shiftpic.co</a></p><p>For billing related questions and comments, send an email to <a href='mailto:billing@shiftpic.co' target='_blank'>billing@shiftpic.co</a>.</p>" },
 
 	"ui_drag_indicator_label": { "message": "You can always drag & drop an image from your computer on this window to use it." },
 	"ui_drag_overlay_label": { "message": "Drop your image here to optimize it" },

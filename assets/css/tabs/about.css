@@ -1,0 +1,8 @@
+#tab-about { width: 60%; margin: auto; }
+#tab-about p a { font-weight: 600; color: white; }
+#tab-about p a:hover { color: var(--color-focus); transition: all .1s ease-in-out; }
+
+#tab-about .social-links { display: flex; margin-top: 30px; }
+#tab-about .social-links a { margin-right: 25px; font-size: 32px; text-decoration: none; color: white; }
+#tab-about .social-links a i { transition: none; }
+#tab-about .social-links a:hover { color: var(--color-focus); transition: all .1s ease-in-out; }

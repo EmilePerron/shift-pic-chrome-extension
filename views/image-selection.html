@@ -11,6 +11,7 @@
 		<link rel="stylesheet" href="../assets/css/tabs/settings.css">
 		<link rel="stylesheet" href="../assets/css/tabs/user.css">
 		<link rel="stylesheet" href="../assets/css/tabs/plans.css">
+		<link rel="stylesheet" href="../assets/css/tabs/about.css">
         <script src="../src/popup/rollbar.js"></script>
 	</head>
 	<body>
@@ -20,14 +21,17 @@
         </header>
 
         <div id="corner-nav">
-            <a href="#" role="tab" toggles="#tab-user">
+            <a href="#" role="tab" toggles="#tab-user" class="has-tooltip">
                 <i class="fas fa-user-circle" aria-hidden="true"></i>
+                <div class="tooltip left"><i i18n="toggle_user_tab"></i></div>
             </a>
-            <a href="#" role="tab" toggles="#tab-plans">
+            <a href="#" role="tab" toggles="#tab-plans" class="has-tooltip">
                 <i class="fas fa-usd-circle" aria-hidden="true"></i>
+                <div class="tooltip left"><i i18n="toggle_plans_tab"></i></div>
             </a>
-            <a href="#" role="tab" toggles="#tab-about">
+            <a href="#" role="tab" toggles="#tab-about" class="has-tooltip">
                 <i class="fas fa-info-circle" aria-hidden="true"></i>
+                <div class="tooltip left"><i i18n="toggle_info_tab"></i></div>
             </a>
         </div>
 
@@ -50,6 +54,7 @@
         <div view="tabs/settings.html"></div>
         <div view="tabs/user.html"></div>
         <div view="tabs/plans.html"></div>
+        <div view="tabs/about.html"></div>
 
         <div id="drag-indicator">
             <i i18n="ui_drag_indicator_label"></i>
@@ -80,5 +85,6 @@
         <script src="../src/popup/tab-search.js"></script>
         <script src="../src/popup/tab-settings.js"></script>
         <script src="../src/popup/tab-user.js"></script>
+        <script src="../src/popup/tab-plans.js"></script>
 	</body>
 </html>

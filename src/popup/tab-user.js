@@ -25,6 +25,8 @@ document.querySelector('#tab-user').addEventListener('submit', function(e) {
                     Flash.show('success', chrome.i18n.getMessage('tab_user_license_change_success'));
                 });
             }
+        }).catch(() => {
+            Flash.show('error', chrome.i18n.getMessage('error'));
         });
     });
 });

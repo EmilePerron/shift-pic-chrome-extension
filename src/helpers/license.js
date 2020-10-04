@@ -30,7 +30,7 @@ class License {
 			if (previousLicense || window.license) {
 				previousLicense = previousLicense || window.license;
 
-				if (/^free_.+$/.test(previousLicense)) {
+				if (/^free_.+$/.test(previousLicense) && /^free_.+$/.test(license) && license != previousLicense) {
 					callback();
 					return;
 				}
@@ -58,7 +58,9 @@ class License {
 					} else {
 						Flash.show('error', 'An error occured while generating your free license. Please close this window and try again.');
 					}
-                });
+                }).catch(() => {
+		            Flash.show('error', chrome.i18n.getMessage('error'));
+		        });
 			}
 		});
 	}
@@ -103,6 +105,8 @@ class License {
 			} else {
 				callback();
 			}
+        }).catch(() => {
+            Flash.show('error', chrome.i18n.getMessage('error'));
         });
     }
 
@@ -119,7 +123,9 @@ class License {
 				} else {
 					Flash.show('error', 'Sorry, your usage records could not be fetched.');
 				}
-			});
+			}).catch(() => {
+	            Flash.show('error', chrome.i18n.getMessage('error'));
+	        });
 		});
 	}
 
@@ -128,6 +134,11 @@ class License {
 		document.documentElement.setAttribute('license-type', type);
 		document.querySelector('#tab-user .field.license-type input').value = planTitle;
 		document.querySelector('#tab-user .field.license input').value = license;
+	}
+
+	static getChangeType(from, to) {
+		const plans = ['free', 'starter', 'premium', 'enterprise'];
+		return plans.indexOf(from) > plans.indexOf(to) ? 'downgrade' : 'upgrade';
 	}
 }
 

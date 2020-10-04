@@ -1,0 +1,32 @@
+/* Basic modal styles */
+#modals-wrapper { position: fixed; top: 0; left: 0; display: flex; width: 100%; height: 100%; justify-content: center; align-items: center; background-color: rgba(0, 0, 0, .2); transition: all .25s ease; cursor: pointer; z-index: 120; }
+#modals-wrapper:empty { opacity: 0; pointer-events: none; }
+#modals-wrapper .modal { display: block; width: 800px; max-width: 90%; min-height: 200px; max-height: 85%; padding: 30px; color: #222; background-color: white; border-radius: 5px; box-shadow: 0 0 25px rgba(0, 0, 0, .25); transform: scale(0); opacity: 0; cursor: default; overflow: auto; box-sizing: border-box; transition: all .25s ease-in-out; }
+#modals-wrapper .modal:not(:last-child) { display: none; }
+#modals-wrapper .modal.open { transform: scale(1); opacity: 1; transition: opacity .25s ease-in-out, transform .4s ease-in-out; }
+#modals-wrapper .modal.small { width: 500px; }
+#modals-wrapper .modal.large { width: 1280px; }
+
+/* Modal title */
+#modals-wrapper .modal .header { display: flex; justify-content: space-between; align-items: center; padding-bottom: 15px; margin-bottom: 15px; border-bottom: 1px solid #eee; }
+#modals-wrapper .modal .header .title { font-size: 22px; font-weight: 600; line-height: 1em; }
+#modals-wrapper .modal .header.no-title { padding: 0; margin-left: 15px; float: right; border: none; }
+
+/* Modal content */
+#modals-wrapper .modal > .content { clear: both; }
+
+/* Modal loading screen */
+#modals-wrapper .modal.loading .content { display: flex; width: 100%; padding-top: 30px; justify-content: center; align-items: center; }
+#modals-wrapper .modal.loading .content::before { content: '\f110'; font-family: 'Font Awesome 5 Pro'; font-size: 32px; font-weight: 400; color: #ccc; animation: fa-spin 2s linear infinite; }
+#modals-wrapper .modal.loading .content > * { display: none; }
+
+/* Unclosable modal */
+#modals-wrapper .modal.unclosable .close-modal { display: none; }
+
+
+/* Custom edits for Shift Pic */
+#modals-wrapper .modal .header .title { font-family: var(--font-heading); }
+#modals-wrapper .modal .top-actions .button { display: inline-flex; width: 40px; height: 40px; padding: 0; justify-content: center; align-items: center; text-decoration: none; background-color: #eee; }
+#modals-wrapper .modal .top-actions .button i { margin: 0; color: #999; }
+#modals-wrapper .modal .top-actions .button:hover { background-color: #d6c8f5; }
+#modals-wrapper .modal .top-actions .button:hover i { color: var(--color-main); }

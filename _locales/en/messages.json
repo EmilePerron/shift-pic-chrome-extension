@@ -50,7 +50,7 @@
 	"tab_user_license_change_success": { "message": "Your license has been successfully updated!" },
 
 	"tab_plans_title": { "message": "Plans" },
-	"tab_plans_subtitle": { "message": "Reasonable prices for every type of users" },
+	"tab_plans_subtitle": { "message": "Reasonable prices for every type of user" },
 	"tab_plans_per_month": { "message": "per month" },
 	"tab_plans_current_plan": { "message": "This is your current plan" },
 	"tab_plans_choose": { "message": "Choose" },
@@ -70,7 +70,7 @@
 	"tab_plans_new_order_validating": { "message": "Thank you for your purchase! Loading your new license..." },
 	"tab_plans_new_order_success": { "message": "You have succesfully been updated to the %s plan!" },
 	"tab_plans_upgrade_success": { "message": "Thank you for your purchase! You have succesfully been upgraded to the %s plan." },
-	"tab_plans_downgrade_success": { "message": "You have succesfully been updated to the %s plan!" },
+	"tab_plans_downgrade_success": { "message": "You have succesfully been updated to the %s plan! Your previous plan will still be active until its renewal date, at which point it will be replaced by your new plan." },
 	"tab_plans_change_error": { "message": "Sorry, an error occured while updating your subscription plan. Please try again later." },
 	"tab_plans_upgrade_modal_title": { "message": "Upgrading your plan" },
 	"tab_plans_downgrade_modal_title": { "message": "Downgrading your plan" },

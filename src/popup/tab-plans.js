@@ -93,7 +93,10 @@ function showPlanUpgradeModal(currentPlan, newPlan) {
             return response.json();
         }).then((response) => {
 			if (response && window.license == response.license && newPlan == response.plan && typeof response.error == 'undefined') {
-                License.updateUI(response.license, response.plan);
+                if (changeType == 'upgrade') {
+                    License.updateUI(response.license, response.plan);
+                }
+
                 Flash.show('success', chrome.i18n.getMessage('tab_plans_' + changeType + '_success').replace('%s', chrome.i18n.getMessage(`tab_plans_${newPlan}_title`)));
                 Modal.close();
 			} else {

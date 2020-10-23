@@ -50,11 +50,13 @@
         const fullUrl = e.target.getAttribute('url-full');
         const unsplashId = e.target.getAttribute('photo-id');
 
-        window.imageFile = '';
+        window.imageFiles = null;
         window.imageUrl = fullUrl;
         window.imageUnsplashId = unsplashId;
         document.querySelector('#tab-upload .image-preview img').src = previewUrl;
         document.querySelector('nav [toggles="#tab-upload"]').click();
+
+        document.querySelector('#tab-upload .image-preview').setAttribute('image-count', 1);
     }, true);
 
     // Auto-load more images when scrolling near the bottom

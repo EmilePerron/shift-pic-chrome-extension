@@ -17,21 +17,20 @@ document.addEventListener('mouseout', function() {
 document.querySelector('#drag-overlay').addEventListener('drop', function(e) {
     e.preventDefault();
 
-    let imageFile = null;
+    let imageFiles = [];
 
     for (let i = 0; i < e.dataTransfer.items.length; i++) {
         if (e.dataTransfer.items[i].kind === 'file') {
-            imageFile = e.dataTransfer.items[i].getAsFile();
-            break;
+            imageFiles.push(e.dataTransfer.items[i].getAsFile());
         }
     }
 
-    if (!imageFile) {
+    if (!imageFiles.length) {
         Flash.show('error', chrome.i18n.getMessage('error_invalid_file'));
         return;
     }
 
-    window.imageFile = imageFile;
+    window.imageFiles = imageFiles;
     window.imageUrl = '';
     window.imageUnsplashId = '';
 
@@ -44,7 +43,9 @@ document.querySelector('#drag-overlay').addEventListener('drop', function(e) {
             document.querySelector('#drag-overlay').classList.remove('visible');
         }
     }
-    reader.readAsDataURL(imageFile);
+    reader.readAsDataURL(imageFiles[0]);
+
+    document.querySelector('#tab-upload .image-preview').setAttribute('image-count', window.imageFiles.length);
 
     // @TODO: implement "Auto optimize on drag" setting here
     //document.querySelector('form#tab-upload').dispatchEvent(new Event('submit'));

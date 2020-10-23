@@ -21,7 +21,7 @@
 #modals-wrapper .modal.loading .content > * { display: none; }
 
 /* Unclosable modal */
-#modals-wrapper .modal.unclosable .close-modal { display: none; }
+#modals-wrapper .modal.unclosable .close-modal { display: none !important; }
 
 
 /* Custom edits for Shift Pic */

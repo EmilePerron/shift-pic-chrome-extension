@@ -114,12 +114,13 @@
                 return response.json();
             }).then((response) => {
                 if (typeof response.error != 'undefined') {
-                    const message = chrome.i18n.getMessage('error_' + response.error);
+                    let message = chrome.i18n.getMessage('error_' + response.error);
+                    message = message ? message : response.error;
 
                     if (multipleMode) {
-                        reject(message ? message : response.error);
+                        reject(message);
                     } else {
-                        Flash.show('error', message ? message : response.error);
+                        Flash.show('error', message);
                     }
                 } else {
                     const originalFilename = window.imageUnsplashId ? `unsplash-image-${window.imageUnsplashId}` : window.imageFile.name.replace(/^(.*)(\.[a-zA-Z0-9]+)$/, '$1');
@@ -134,12 +135,13 @@
                                 }
                             });
                         } else {
-                            const message = chrome.i18n.getMessage('error_' + response[resolution].error);
+                            let message = chrome.i18n.getMessage('error_' + response[resolution].error);
+                            message = message ? message : response[resolution].error;
 
                             if (multipleMode) {
-                                warnings.push(message ? message : response[resolution].error);
+                                warnings.push(message);
                             } else {
-                                Flash.show('warning', message ? message : response[resolution].error);
+                                Flash.show('warning', message);
                             }
                         }
                     }

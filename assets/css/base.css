@@ -59,6 +59,9 @@ label { display: block; margin-bottom: 7px; font-size: 1rem; }
 .field.unavailable::before { content: 'This feature will be made available in a future update.'; max-width: 100%; padding: 5px 8px; font-size: .9rem; color: var(--color-dark); background-color: white; border-radius: 5px; box-shadow: 0 0 5px rgba(0, 0, 0, .25); position: absolute; top: 8px; left: 0; z-index: 5; opacity: 0; }
 .field.unavailable:hover::before { opacity: 1; transition: all .25s ease-in-out .25s; }
 .field label + .help-text { margin-top: -7px; margin-bottom: 8px; font-size: .85rem; color: rgba(255, 255, 255, .7); }
+.single-line-fields { display: flex; justify-content: stretch; align-items: flex-start; }
+.single-line-fields > * { flex: 1 1 auto; margin-right: 15px; }
+.single-line-fields > *:last-child { margin-right: 0; }
 .input-button-wrapper { display: flex; justify-content: space-between; }
 .input-button-wrapper *:first-child { margin-right: 5px; }
 

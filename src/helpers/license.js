@@ -5,10 +5,11 @@ class License {
 				window.license = license;
 				License.getType((type) => {
 					License.updateUI(license, type);
+					License.refreshUsage();
 				});
 			} else {
 				License.assignFreeLicense(() => {
-
+					License.refreshUsage();
 				});
 			}
 		});
@@ -110,7 +111,7 @@ class License {
         });
     }
 
-	static getUsage(callback) {
+	static refreshUsage(callback = null, updateUI = true) {
 		License.get((license) => {
 	        const formData = new FormData();
 	        formData.append('license', license);
@@ -119,12 +120,22 @@ class License {
 				return response.json();
 			}).then((response) => {
 				if (response && response.usage) {
-					callback(response.usage);
+					if (updateUI) {
+						document.querySelector('#usage-indicator input').value = parseInt(response.usage) + ' / ' + parseInt(response.max);
+					}
+
+					if (callback) {
+						callback(response.usage);
+					}
 				} else {
-					Flash.show('error', 'Sorry, your usage records could not be fetched.');
+					if (callback) {
+						Flash.show('error', 'Sorry, your usage records could not be fetched.');
+					}
 				}
 			}).catch(() => {
-	            Flash.show('error', chrome.i18n.getMessage('error'));
+				if (callback) {
+	            	Flash.show('error', chrome.i18n.getMessage('error'));
+				}
 	        });
 		});
 	}

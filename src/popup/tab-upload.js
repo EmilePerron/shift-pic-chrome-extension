@@ -125,7 +125,7 @@
                 } else {
                     const originalFilename = window.imageUnsplashId ? `unsplash-image-${window.imageUnsplashId}` : window.imageFile.name.replace(/^(.*)(\.[a-zA-Z0-9]+)$/, '$1');
                     for (const resolution in response) {
-                        if (typeof response[resolution].error == 'undefined') {
+                        if (typeof response[resolution].image != 'undefined' && response[resolution].image) {
                             chrome.downloads.download({
                                 url: response[resolution].image,
                                 filename: `${originalFilename}-${response[resolution].devices.join('-').toLowerCase()}-${resolution}${response[resolution].extension}`
@@ -134,7 +134,9 @@
                                     Flash.show('error', chrome.i18n.getMessage('error_download'));
                                 }
                             });
-                        } else {
+                        }
+
+                        if (typeof response[resolution].error != 'undefined') {
                             let message = chrome.i18n.getMessage('error_' + response[resolution].error);
                             message = message ? message : response[resolution].error;
 
@@ -150,6 +152,8 @@
                 if (!multipleMode) {
                     document.querySelector('#processing-overlay').classList.remove('visible');
                 }
+
+                License.refreshUsage();
 
                 resolve(warnings);
             }).catch((error) => {

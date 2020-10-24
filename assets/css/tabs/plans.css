@@ -7,6 +7,7 @@
 #tab-plans .plans-container .plan .header .per-month { font-size: 12px; color: #999; }
 #tab-plans .plans-container .plan hr { display: block; width: 60%; height: 1px; margin: 20px auto; background-color: #eee; border: none; }
 #tab-plans .plans-container .plan .description-wrapper { font-size: 14px; line-height: 1.5; color: #555; }
+#tab-plans .plans-container .plan .description-wrapper .description-line:first-child { font-size: 13px; }
 #tab-plans .plans-container .plan .description-wrapper .description-line + .description-line { margin-top: 8px; }
 #tab-plans .plans-container .plan .description-wrapper .description-line .subline { font-size: .8em; }
 #tab-plans .plans-container .plan button { width: 100%; padding: 10px; margin-top: 20px; color: white; background-color: var(--color-main); }

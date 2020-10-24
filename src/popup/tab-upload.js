@@ -45,6 +45,7 @@
         if (window.imageFiles && window.imageFiles.length > 1) {
             startMultiImageProcessing();
         } else {
+            window.imageFile = window.imageFiles.length == 1 ? window.imageFiles[0] : null;
             document.querySelector('#processing-overlay').classList.add('visible');
             processCurrentImage(false);
         }

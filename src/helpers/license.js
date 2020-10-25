@@ -54,7 +54,7 @@ class License {
                 fetch("https://api.shiftpic.co/license/free", { method: 'POST' }).then((response) => {
                     return response.json();
                 }).then((response) => {
-                    if (response && response.license) {
+                    if (response) {
 						License.set(response.license, callback);
 					} else {
 						Flash.show('error', 'An error occured while generating your free license. Please close this window and try again.');

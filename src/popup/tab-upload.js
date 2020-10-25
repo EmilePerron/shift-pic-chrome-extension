@@ -93,7 +93,7 @@
                 if (processingModal.querySelector('.fa-times-circle')) {
                     Flash.show('error', chrome.i18n.getMessage('error_multi_processing'));
                 } else {
-                    Flash.show('error', chrome.i18n.getMessage('tab_upload_multi_modal_success'));
+                    Flash.show('success', chrome.i18n.getMessage('tab_upload_multi_modal_success'));
                 }
             }
         });

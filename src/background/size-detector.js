@@ -68,9 +68,28 @@ function detectSize(tab) {
                                 // Reset window size and process image
                                 chrome.windows.update(window.id, originalResolution)
 
+                                // Before we proceed, check to standardize image resolutions that are within 10x10px or less of each other
+                                // (ex.: combine 161x161, 165x165 and 170x170 to a single 170x170)
+                                const standardizedData = results;
+                                for (const key in standardizedData) {
+                                    const originalHeight = standardizedData[key].height;
+                                    const originalWidth = standardizedData[key].width;
+
+                                    for (const otherKey in standardizedData) {
+                                        if (key == otherKey) {
+                                            continue;
+                                        }
+
+                                        if (Math.abs(originalHeight - standardizedData[otherKey].height) < 10 && Math.abs(originalWidth - standardizedData[otherKey].width) < 10) {
+                                            standardizedData[key].height = standardizedData[otherKey].height = Math.max(originalHeight, standardizedData[otherKey].height);
+                                            standardizedData[key].width = standardizedData[otherKey].width = Math.max(originalWidth, standardizedData[otherKey].width);
+                                        }
+                                    }
+                                }
+
                                 // Open image selection UI and pass size data
                                 chrome.windows.create({ url: 'views/image-selection.html', type: 'popup', focused: true, width: 900, height: 640 }, function(window) {
-                                    setTimeout(() => { chrome.runtime.sendMessage({ action: 'initImageSelectionWindow', sizeDataByDevice: results }); }, 500);
+                                    setTimeout(() => { chrome.runtime.sendMessage({ action: 'initImageSelectionWindow', sizeDataByDevice: standardizedData }); }, 500);
                                 });
                             }
                         };

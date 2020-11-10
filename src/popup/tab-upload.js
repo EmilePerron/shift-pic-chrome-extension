@@ -106,6 +106,7 @@
         formData.append('license', window.license);
         formData.append('image', window.imageFile);
         formData.append('devices', JSON.stringify(window.sizeDataByDevice));
+        formData.append('quality', document.querySelector("#tab-upload input[name='quality']").value);
 
         return new Promise((resolve, reject) => {
             const warnings = [];

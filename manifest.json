@@ -37,7 +37,7 @@
 	        "run_at": "document_end"
         }
     ],
-	"content_security_policy": "script-src 'self' https://api.shiftpic.co https://www.shiftpic.co https://cdn.rollbar.com; object-src 'self'",
+	"content_security_policy": "script-src 'self' https://api.shiftpic.co https://www.shiftpic.co https://cdn.rollbar.com https://shiftpic.onfastspring.com; frame-src 'self' https://www.shiftpic.co https://shiftpic.onfastspring.com; object-src 'self'",
 	"browser_action": {
     },
 	"manifest_version": 2
